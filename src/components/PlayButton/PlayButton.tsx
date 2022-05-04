@@ -1,8 +1,13 @@
 import * as Styled from './PlayButton.styled';
 
-export const PlayButton = function() {
-  return <Styled.PlayButtonRoot>
-    PLAY
+type PlayButtonProps = {
+  playing: boolean;
+  onClick: () => void;
+};
+
+export const PlayButton = function({ playing, onClick }: PlayButtonProps) {
+  return <Styled.PlayButtonRoot onClick={onClick}>
+    {playing ? 'STOP' : 'PLAY'}
     <Styled.Description>
       Click or press <Styled.Code>space</Styled.Code>
     </Styled.Description>
